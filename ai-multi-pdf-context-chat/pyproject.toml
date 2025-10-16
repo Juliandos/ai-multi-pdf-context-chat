@@ -1,19 +1,23 @@
-[project]
+[tool.poetry]
 name = "ai-multi-pdf-context-chat"
 version = "0.1.0"
 description = ""
-authors = [
-    {name = "Julian David Ortega Solarte",email = "95juliandos@gmail.com"}
-]
+authors = ["Your Name <you@example.com>"]
 readme = "README.md"
-requires-python = ">=3.11"
-dependencies = [
+packages = [
+    { include = "app" },
 ]
 
-[tool.poetry]
-packages = [{include = "ai_multi_pdf_context_chat", from = "src"}]
+[tool.poetry.dependencies]
+python = "^3.11"
+uvicorn = "^0.23.2"
+langserve = {extras = ["server"], version = ">=0.0.30"}
+pydantic = "<2"
 
+
+[tool.poetry.group.dev.dependencies]
+langchain-cli = ">=0.0.15"
 
 [build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
+requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
